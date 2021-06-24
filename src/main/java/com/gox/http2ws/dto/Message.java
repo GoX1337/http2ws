@@ -7,9 +7,11 @@ public class Message {
     private String payload;
     private Date date;
 
+    public Message(){
+    }
+
     public Message(String payload) {
         this.payload = payload;
-        this.date = new Date();
     }
 
     public String getPayload() {
@@ -26,5 +28,13 @@ public class Message {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "payload='" + payload + '\'' +
+                ", date=" + date +
+                '}';
     }
 }
