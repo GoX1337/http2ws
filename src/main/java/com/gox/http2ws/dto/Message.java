@@ -12,6 +12,7 @@ public class Message {
 
     public Message(String payload) {
         this.payload = payload;
+        this.date = new Date();
     }
 
     public String getPayload() {
