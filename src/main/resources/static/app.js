@@ -20,7 +20,9 @@ function connect() {
         setConnected(true);
         console.log('Connected: ' + frame);
         stompClient.subscribe('/topic', function (msg) {
-            showGreeting(JSON.parse(msg.body).payload);
+            let msgObj = JSON.parse(msg.body);
+            console.log(msgObj);
+            showGreeting(msgObj.date + " " + msgObj.payload);
         });
     });
 }
@@ -45,7 +47,7 @@ $(function () {
     $("form").on('submit', function (e) {
         e.preventDefault();
     });
-    $( "#connect" ).click(function() { connect(); });
+    connect();
     $( "#disconnect" ).click(function() { disconnect(); });
     $( "#send" ).click(function() { sendName(); });
 });
